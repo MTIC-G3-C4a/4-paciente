@@ -18,6 +18,7 @@ Edad
 Género
 Celular
 Correo
+Observaciones
 Síntomas{
 }
 
