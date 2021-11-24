@@ -1,0 +1,129 @@
+
+Funcionalidades:
+Registrar pacientes y síntomas
+Ver pacientes y sntomas
+Cambiar datos de pacientes
+Ver enfermedades y síntomas
+Registrar enfermedades y síntomas (predeterminada, no editable)
+Eliminar pacientes de la bd
+
+
+2 modelos
+
+Pacientes:
+Nombre
+Tipo documento
+Documento
+Edad
+Género
+Celular
+Correo
+Observaciones
+Síntomas{
+}
+
+
+Lista de síntomas:
+Astenia
+Adinamia
+Tos
+Odinofagia
+Disnea
+Taquipnea
+Hiporexia
+Anosmia
+Mialgia
+Cefalea
+Hipoxia
+Hipoxemia
+Fiebre
+Diarrea
+Dolor Torácico
+Sonrisa desigual
+Dificultad del habla
+Parálisis en ciertas partes del cuerpo
+Rinorrea
+Escalofríos
+Hipotensión
+Temperatura corporal baja
+Golpe reciente
+Naúseas
+Vómitos
+Pérdida de sangre
+Palidez
+Sudor frío
+Asfixia
+Dolor Abdominal
+
+
+
+Enfermedades con síntomas:
+
+
+E1:COVID
+Astenia
+Adinamia
+Tos
+Odinofagia
+Disnea
+Taquipnea
+Hiporexia
+Anosmia
+Mialgia
+Cefalea
+Hipoxia
+Hipoxemia
+Fiebre
+Diarrea
+Dolor Torácico
+
+E2: ACV
+Sonrisa desigual
+Dificultad del habla
+Parálisis en ciertas partes del cuerpo
+
+E3: Choque Séptico
+Fiebre
+Escalofríos
+Hipotensión
+Temperatura corporal baja
+
+
+E4: Resfriado común
+Fiebre
+Mialgia
+Rinorrea
+Cefalea
+Tos
+Dolor torácico
+
+E5: Infarto al miocardio
+Dolor en el pecho
+Dolor abdominal
+Dolor en brazo derecho
+
+E6: Traumatismo Craneoencefálico
+Golpe reciente
+Naúseas
+Vómitos
+
+E7: Sangrado interno
+Pérdida de sangre
+Disnea
+Vómito
+Palidez
+Sudor frío
+
+E8: Envenenamiento por CO
+Asfixia
+Cefalea
+
+E9: Envenenamiento
+Dolor abdominal 
+Náuseas
+Vómito
+
+
+
+
+
