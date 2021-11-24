@@ -18,6 +18,11 @@ public class PacienteController {
     @Autowired
     private PacienteRepository repository;
 
+    @PostMapping("/paciente")
+    public Paciente createPaciente(@Validated @RequestBody Paciente p){
+        return repository.insert(p);
+    }
+
     @GetMapping("/")
     public List<Paciente> getAllPacientes(){
         return repository.findAll();
@@ -27,6 +32,12 @@ public class PacienteController {
     public Paciente getPaciente(@PathVariable String documento) {
         return repository.findById(documento).orElseThrow(() -> new PacienteNotFoundException
                 ("No se encontro un paciente con el documento: " + documento));
+    }
+
+    @PutMapping("/updatePaciente/{documento}")
+    public Paciente updatePaciente(@PathVariable String documento, @Validated @RequestBody Paciente p){
+        p.setDocumento(documento);
+        return repository.save(p);
     }
 
     @DeleteMapping("/deletePaciente/{documento}")
