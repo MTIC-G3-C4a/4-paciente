@@ -20,7 +20,22 @@ public class PacienteController {
 
     @PostMapping("/paciente")
     public Paciente createPaciente(@Validated @RequestBody Paciente p){
-        return repository.insert(p);
+        if (p.getDocumento()=="" ){
+            return repository.findById("").orElseThrow(() -> new PacienteNotFoundException
+                    ("No se puede crear un paciente con documento vacío"));
+
+        }
+
+        if(!repository.existsById(p.getDocumento())){
+            return repository.insert(p);
+        }
+
+        else{
+            return repository.findById("").orElseThrow(() -> new PacienteNotFoundException
+                    ("El paciente con documento " + p.getDocumento() + " ya existe."));
+        }
+
+
     }
 
     @GetMapping("/")
@@ -36,12 +51,17 @@ public class PacienteController {
 
     @PutMapping("/updatePaciente/{documento}")
     public Paciente updatePaciente(@PathVariable String documento, @Validated @RequestBody Paciente p){
+        repository.findById(documento).orElseThrow(() -> new PacienteNotFoundException
+                ("No se encontro un paciente con el documento: " + documento));
         p.setDocumento(documento);
         return repository.save(p);
     }
 
     @DeleteMapping("/deletePaciente/{documento}")
-    public void deletePaciente(@PathVariable String documento){
+    public String deletePaciente(@PathVariable String documento){
+        repository.findById(documento).orElseThrow(() -> new PacienteNotFoundException
+                ("No se encontro un paciente con el documento: " + documento));
         repository.deleteById(documento);
+        return "Paciente eliminado correctamente";
     }
 }
