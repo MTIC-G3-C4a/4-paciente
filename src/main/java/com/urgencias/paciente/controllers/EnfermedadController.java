@@ -27,6 +27,10 @@ public class EnfermedadController {
     @PostMapping("/enfermedad")
     public Enfermedad newEnfermedad(@RequestBody Enfermedad enfermedad) {
         // Condición para emitir excepción en caso de que exista la enfermedad a crear
+        if(enfermedad.getNombre()==""){
+            return enfermedadRepository.findById("").orElseThrow(() -> new EnfermedadNotCoincidenceException
+                    ("No se puede crear una enfermedad con nombre vacío"));
+        }
         if(!enfermedadRepository.existsById(enfermedad.getNombre())) {
             return enfermedadRepository.save(enfermedad);
         }
@@ -96,7 +100,7 @@ public class EnfermedadController {
         }
         // Excepción si no hay ninguna coincidencia
         if (enfermedades_filt.size()==0){
-            Enfermedad enfermedadn = enfermedadRepository.findById(" ").orElseThrow(() -> new EnfermedadNotCoincidenceException
+            Enfermedad enfermedadn = enfermedadRepository.findById("").orElseThrow(() -> new EnfermedadNotCoincidenceException
                     ("No existe una enfermedad registrada que coincida con alguno de los síntomas del paciente con documento: " + documento));
             enfermedades_filt.add(enfermedadn);
         }
